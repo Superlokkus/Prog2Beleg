@@ -1,16 +1,15 @@
 //
-//  main.cpp
+//  Media.cpp
 //  Prog2BelegMedienverwaltung
 //
 //  Created by Markus Klemm on 27.07.14.
 //  Copyright (c) 2014 net.markusklemm. All rights reserved.
 //
 
-#include <iostream>
+#include "Media.h"
 
-int main(int argc, const char * argv[])
+Media::Media ()
 {
-
-    return 0;
+    this->lender = nullptr;
+    
 }
-

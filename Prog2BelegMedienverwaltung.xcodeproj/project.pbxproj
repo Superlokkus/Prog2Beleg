@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		283BEC3B1985720C0072F3D0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 283BEC3A1985720C0072F3D0 /* main.cpp */; };
 		283BEC3D1985720C0072F3D0 /* Prog2BelegMedienverwaltung.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 283BEC3C1985720C0072F3D0 /* Prog2BelegMedienverwaltung.1 */; };
+		283BEC47198575260072F3D0 /* Media.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 283BEC45198575260072F3D0 /* Media.cpp */; };
+		283BEC4A198576AF0072F3D0 /* Person.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 283BEC48198576AF0072F3D0 /* Person.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,11 @@
 		283BEC371985720C0072F3D0 /* Prog2BelegMedienverwaltung */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Prog2BelegMedienverwaltung; sourceTree = BUILT_PRODUCTS_DIR; };
 		283BEC3A1985720C0072F3D0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		283BEC3C1985720C0072F3D0 /* Prog2BelegMedienverwaltung.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Prog2BelegMedienverwaltung.1; sourceTree = "<group>"; };
+		283BEC431985744C0072F3D0 /* Task.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Task.txt; sourceTree = "<group>"; };
+		283BEC45198575260072F3D0 /* Media.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Media.cpp; sourceTree = "<group>"; };
+		283BEC46198575260072F3D0 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		283BEC48198576AF0072F3D0 /* Person.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Person.cpp; sourceTree = "<group>"; };
+		283BEC49198576AF0072F3D0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +67,23 @@
 		283BEC391985720C0072F3D0 /* Prog2BelegMedienverwaltung */ = {
 			isa = PBXGroup;
 			children = (
+				283BEC44198575040072F3D0 /* MediaManagment */,
 				283BEC3A1985720C0072F3D0 /* main.cpp */,
+				283BEC431985744C0072F3D0 /* Task.txt */,
 				283BEC3C1985720C0072F3D0 /* Prog2BelegMedienverwaltung.1 */,
 			);
 			path = Prog2BelegMedienverwaltung;
+			sourceTree = "<group>";
+		};
+		283BEC44198575040072F3D0 /* MediaManagment */ = {
+			isa = PBXGroup;
+			children = (
+				283BEC45198575260072F3D0 /* Media.cpp */,
+				283BEC46198575260072F3D0 /* Media.h */,
+				283BEC48198576AF0072F3D0 /* Person.cpp */,
+				283BEC49198576AF0072F3D0 /* Person.h */,
+			);
+			name = MediaManagment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283BEC47198575260072F3D0 /* Media.cpp in Sources */,
+				283BEC4A198576AF0072F3D0 /* Person.cpp in Sources */,
 				283BEC3B1985720C0072F3D0 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +219,7 @@
 		283BEC411985720C0072F3D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -204,6 +227,7 @@
 		283BEC421985720C0072F3D0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

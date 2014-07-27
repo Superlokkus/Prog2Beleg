@@ -1,0 +1,31 @@
+Belegaufgabe C++ (AI)
+
+Schreiben Sie ein objektorientiertes Programm in C++ zur Verwaltung verliehener Medien (Bücher, Videos(DVDs,...), CDs (wenigstens zwei Medienarten))
+Erarbeiten Sie dazu die Klassen:
+
+Medium (Basisklasse mit ggf. virtuellen Funktionen)
+BOOK
+Video, ...
+PERSON
+
+Erarbeiten Sie weitere Klassen
+
+STRING
+LIST, ELEMENT, ggf. ITERATOR jeweils als Template
+Jede Klasse soll in einem separaten Modul implementiert werden (Header- und C++-File)
+
+Funktionsumfang:
+
+Verwaltung der Personen (erfassen, anzeigen, auflisten, löschen ...)
+Verwaltung der Medien(s.o.)
+Ausleihe, Rückgabe
+Dateiarbeit(Laden und Speichern von Datenbeständen)
+
+Hinweise zur Anfertigung:
+Auf hinreichende Kommentierung ist zu achten, so dass bei der Belegvorführung der Quelltext auch wieder verstanden wird.
+Jeder Quelltext enthalte den Namen, die Matrikelnummer und die Studiengruppe des Autors.
+Speicherbereiche sind mit new auszufasssen und wieder freizugeben.
+Das Programm soll portabel sein und sowohl unter Windows als auch unter Linux/Unix übersetzt und ausgeführt werden können. In jedem Fall müssen die Programme auf den Rechnern in den Laboren der Fakultät vorgeführt und übersetzt werden können.
+Wird das Programm mit wxWindows oder Qt ausgeführt (Toolkits zur Programmierung portabler Oberflächen), so entfällt die Programmierung der String und Listklassen, es werden dann die der betreffenden Bibliotheken genutzt. 
+Abgabe des Beleges bis 31.08. als tgz- oder zip-File, bitte mit Testdaten!
+A. Beck, 2014

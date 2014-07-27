@@ -1,16 +1,14 @@
 //
-//  main.cpp
+//  Person.cpp
 //  Prog2BelegMedienverwaltung
 //
 //  Created by Markus Klemm on 27.07.14.
 //  Copyright (c) 2014 net.markusklemm. All rights reserved.
 //
 
-#include <iostream>
+#include "Person.h"
 
-int main(int argc, const char * argv[])
+Person::Person (const std::string &name)
+: pName(name)
 {
-
-    return 0;
 }
-
