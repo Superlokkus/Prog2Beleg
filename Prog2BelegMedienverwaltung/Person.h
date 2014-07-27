@@ -19,17 +19,23 @@ class Person
 private:
     const std::string pName;
     unsigned pMaxItems;
+    unsigned pLentItemsCount;
+    std::list<Media*> pLentMedia;
 public:
-    std::string name();
+    std::string name() const;
     /*! Returns the limits of items the person can lend, or zero if there is none
      @return Limit or zero
      */
-    unsigned maxItems();
+    unsigned maxItems() const;
     /*! Set the limit of items the person can lend, or zero if there is none
      @param itemLimit Limit or zero
      */
     void setmaxItems(unsigned itemLimit);
-    std::list <Media&> lendMedia();
+    
+    bool lend       (Media &toLend);
+    bool giveback   (Media &toGiveBack);
+    
+    std::list <Media&> lentMedia() const;
     Person (const std::string &name);
     Person (const std::string &name, unsigned itemLimit);
     

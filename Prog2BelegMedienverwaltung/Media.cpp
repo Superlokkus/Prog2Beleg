@@ -8,8 +8,17 @@
 
 #include "Media.h"
 
-Media::Media ()
+
+Media::Media () : pLender(nullptr)
 {
-    this->lender = nullptr;
-    
+}
+
+Person const* Media::lendstatus () const
+{
+    return pLender;
+}
+
+void Media::setLender(const Person *lender)
+{
+    pLender = lender;
 }

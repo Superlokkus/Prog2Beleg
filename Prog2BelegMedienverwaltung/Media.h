@@ -18,16 +18,16 @@ Abstract Base Class for all media types which should be managed
 */
 class Media {
 private:
-    Person* lender;
+    const Person* pLender;
     Media ();
     
 public:
-    bool lend       (const Person &lender);
-    bool giveback   (const Person &returner);
     /*! If Media is lend to someone, returns the person, otherwise a nullptr
      @return Pointer to a person class instance or nullptr if not lend
      */
-    Person* lendstatus () const;
+    const Person* lendstatus () const;
+    
+    void setLender(const Person *lender);
     
     virtual std::string name () = 0;
     Media& operator= (const Media *) = delete;
