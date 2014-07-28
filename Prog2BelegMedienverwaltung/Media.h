@@ -19,7 +19,9 @@ Abstract Base Class for all media types which should be managed
 class Media {
 private:
     const Person* pLender;
-    Media ();
+
+protected:
+       Media ();
     
 public:
     /*! If Media is lend to someone, returns the person, otherwise a nullptr

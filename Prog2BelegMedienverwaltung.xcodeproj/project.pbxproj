@@ -11,6 +11,7 @@
 		283BEC3D1985720C0072F3D0 /* Prog2BelegMedienverwaltung.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 283BEC3C1985720C0072F3D0 /* Prog2BelegMedienverwaltung.1 */; };
 		283BEC47198575260072F3D0 /* Media.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 283BEC45198575260072F3D0 /* Media.cpp */; };
 		283BEC4A198576AF0072F3D0 /* Person.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 283BEC48198576AF0072F3D0 /* Person.cpp */; };
+		28EE052B1986218900DF0AA2 /* Book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28EE05291986218900DF0AA2 /* Book.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,8 @@
 		283BEC46198575260072F3D0 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
 		283BEC48198576AF0072F3D0 /* Person.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Person.cpp; sourceTree = "<group>"; };
 		283BEC49198576AF0072F3D0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		28EE05291986218900DF0AA2 /* Book.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Book.cpp; sourceTree = "<group>"; };
+		28EE052A1986218900DF0AA2 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,8 @@
 				283BEC46198575260072F3D0 /* Media.h */,
 				283BEC48198576AF0072F3D0 /* Person.cpp */,
 				283BEC49198576AF0072F3D0 /* Person.h */,
+				28EE05291986218900DF0AA2 /* Book.cpp */,
+				28EE052A1986218900DF0AA2 /* Book.h */,
 			);
 			name = MediaManagment;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EE052B1986218900DF0AA2 /* Book.cpp in Sources */,
 				283BEC47198575260072F3D0 /* Media.cpp in Sources */,
 				283BEC4A198576AF0072F3D0 /* Person.cpp in Sources */,
 				283BEC3B1985720C0072F3D0 /* main.cpp in Sources */,
@@ -251,6 +257,7 @@
 				283BEC421985720C0072F3D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

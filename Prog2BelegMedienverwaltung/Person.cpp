@@ -36,3 +36,15 @@ bool Person::giveback   (Media &toGiveBack)
     toGiveBack.setLender(nullptr); pLentItemsCount--;
     return true;
 }
+std::string Person::name() const
+{
+    return std::string(pName);
+}
+unsigned Person::maxItems() const
+{
+    return pMaxItems;
+}
+void Person::setmaxItems(unsigned itemLimit)
+{
+    pMaxItems = itemLimit;
+}
