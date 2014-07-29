@@ -10,7 +10,10 @@
 #define __Prog2BelegMedienverwaltung__menu__
 
 #include <iostream>
+#include "Media.h"
+#include "Person.h"
+#include "MediaPersonDB.h"
 
-void runloop ();
+void runloop (MediaPersonDB &mpdb);
 
 #endif /* defined(__Prog2BelegMedienverwaltung__menu__) */

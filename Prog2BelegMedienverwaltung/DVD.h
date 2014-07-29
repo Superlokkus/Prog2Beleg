@@ -14,11 +14,11 @@
 
 class DVD:Media {
 private:
-    const std::string pTitle;
-    const std::string pDirector;
     unsigned pDVDCount;
     
 public:
+    const std::string pTitle;
+    const std::string pDirector;
     std::string name ();
     DVD (const std::string &title, const std::string &director);
     DVD (const std::string &title, const std::string &director, unsigned DVDCount);

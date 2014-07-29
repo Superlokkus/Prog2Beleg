@@ -14,12 +14,9 @@
 
 class Book : Media
 {
-private:
+public:
     const std::string pTitle;
     const std::string pAuthor;
-    
-    
-public:
     std::string name ();
     Book (const std::string &title, const std::string &author);
     

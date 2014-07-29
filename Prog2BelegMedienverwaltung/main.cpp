@@ -9,15 +9,18 @@
 #include <iostream>
 #include <list>
 #include "menu.h"
+#include "MediaPersonDB.h"
 
 
 int main(int argc, const char * argv[])
 {
-    class Media; class Person;
-    std::list<Media*> MDB; std::list<Person*> PDB;
+    MediaPersonDB mpdb;
     
-    runloop();
+    //load saved records in mpdb
     
+    runloop(mpdb);
+    
+    //save recods in mpdb
 
     return 0;
 }

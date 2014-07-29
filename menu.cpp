@@ -9,9 +9,10 @@
 #include "menu.h"
 
 
+
 using namespace std;
 
-void runloop ()
+void runloop (MediaPersonDB &mpdb)
 {
     unsigned command;
     
