@@ -10,11 +10,11 @@
 
 std::string Book::name ()
 {
-    return "Title: " + ptitle + " Author: " + pauthor;
+    return "Title: " + pTitle + " Author: " + pAuthor;
 }
 
  Book::Book (const std::string &title, const std::string &author)
-: ptitle(title), pauthor(title)
+: pTitle(title), pAuthor(title)
 {
     
 }

@@ -15,8 +15,8 @@
 class Book : Media
 {
 private:
-    const std::string ptitle;
-    const std::string pauthor;
+    const std::string pTitle;
+    const std::string pAuthor;
     
     
 public:
