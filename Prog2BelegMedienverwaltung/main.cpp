@@ -7,9 +7,17 @@
 //
 
 #include <iostream>
+#include <list>
+#include "menu.h"
+
 
 int main(int argc, const char * argv[])
 {
+    class Media; class Person;
+    std::list<Media*> MDB; std::list<Person*> PDB;
+    
+    runloop();
+    
 
     return 0;
 }
