@@ -99,3 +99,48 @@ void runloop::runloop (MediaPersonDB &mpdb)
         }
     }
 }
+
+void lendBook()
+{
+    string searchString;
+    cout << "Please enter book title: " << endl;
+    cin >> searchString;
+    Book *bookToLend = mpdb->getBookByTitle(searchString);
+    if (bookToLend == nullptr)
+    {
+        cout << "Book not found by title, please enter author: " << endl;
+        cin >> searchString;
+        bookToLend = mpdb->getBookByAuthor(searchString);
+        if (bookToLend == nullptr) {
+            cout << "Book not found either by author, aborting." << endl;
+            return;
+        }
+    }
+    cout << "Enter the persons name you want to lend to" << endl;
+    cin >> searchString;
+    Person * p = mpdb->getPersonByName(searchString);
+    if (p == nullptr)
+    {
+        cout << "Person not found, aborting." << endl;
+        return;
+    }
+    p->lend(*bookToLend);
+    
+    
+}
+void lendDVD();
+
+void giveBackBook();
+void giveBackDVD();
+
+void listPersons();
+void infoPerson();
+void storePerson();
+void deletePerson();
+
+void listMedia();
+void infoMedia();
+void storeBook();
+void storeDVD();
+void deleteBook();
+void deleteDVD();

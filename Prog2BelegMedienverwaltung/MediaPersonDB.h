@@ -25,9 +25,11 @@ public:
     void storeBook(Book &&mediaToStore);
     void storeDVD(DVD &&dvdToStore);
     void storePerson(Person &&personToStore);
-    Book& getBookByTitle(const std::string &title) const;
-    Book& getBookByAuthor(const std::string &author) const;
-    DVD& getDVDByTitle(const std::string &title) const;
+    Book* getBookByTitle(const std::string &title) const;
+    Book* getBookByAuthor(const std::string &author) const;
+    DVD* getDVDByTitle(const std::string &title) const;
+    DVD* getDVDByDirector(const std::string &director) const;
+    Person* getPersonByName(const std::string &name) const;
     
 };
 

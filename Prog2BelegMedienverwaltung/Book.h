@@ -19,6 +19,7 @@ public:
     const std::string pAuthor;
     std::string name ();
     Book (const std::string &title, const std::string &author);
+    virtual void setLender(const Person *lender);
     
 };
 

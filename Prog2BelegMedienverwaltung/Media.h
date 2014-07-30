@@ -22,14 +22,14 @@ private:
 
 protected:
        Media ();
-    
+
 public:
     /*! If Media is lend to someone, returns the person, otherwise a nullptr
      @return Pointer to a person class instance or nullptr if not lend
      */
-    const Person* lendstatus () const;
+    virtual const Person* lendstatus () const;
     
-    void setLender(const Person *lender);
+    virtual void setLender(const Person *lender);
     
     virtual std::string name () = 0;
     Media& operator= (const Media *) = delete;
