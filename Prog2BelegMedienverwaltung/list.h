@@ -5,7 +5,6 @@
 
 #include <utility>
 #include <iterator>
-#include <cstdlib>
 
 namespace MKay /* Markus Klemm */
 {
@@ -70,8 +69,8 @@ namespace MKay /* Markus Klemm */
          Note the saved code space! One line instead of 5 for the base class! */
         {
             // Friends are nice to have :)
-            /* to allow conversions iterator -> const_iterator */
-            friend listIterator<Element, true>;
+            /* to allow iterator <-> const_iterator interactions */
+            friend listIterator<Element, !constIteratorFlag>;
             /* Make the list being able to actually use the iterators.
              Note that the only non-copying constructor below is private!
              This way no other class can use our iterators!
