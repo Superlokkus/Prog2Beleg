@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 net.markusklemm. All rights reserved.
 //
 
-#ifndef __Prog2BelegMedienverwaltung__DVD__
-#define __Prog2BelegMedienverwaltung__DVD__
+#ifndef MK_DVD
+#define MK_DVD
 
 #include <iostream>
 #include "Media.h"
@@ -24,6 +24,7 @@ public:
     DVD (const std::string &title, const std::string &director, unsigned DVDCount);
     void setDVDCount (unsigned count);
     unsigned DVDCount ();
+    bool operator== (const DVD&r);
 };
 
-#endif /* defined(__Prog2BelegMedienverwaltung__DVD__) */
+#endif /* defined(MK_DVD) */

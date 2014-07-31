@@ -5,22 +5,19 @@
 
 namespace MKay /* Markus Klemm */
 {
-    // A small string class
     class string
     {
     public:
-        // The usual typedefs
         using iterator = char*;
         using const_iterator = const char*;
         using reverse_iterator = std::reverse_iterator<iterator>;
         using const_reverse_iterator = std::reverse_iterator<const_iterator>;
         using size_type = std::size_t;
     private:
-        std::size_t len; // The string length as by strlen(str)
-        char *str; // The string buffer containg len+1 elements (null-terminated)
+        std::size_t len;
+        char *str; // len+1 elements (\0)
     public:
-        // Contructors.... Not much needs to be said
-        string( void ) : len(0), str(new char[1]) { str[0] = '\0'; }
+        string() : len(0), str(new char[1]) { str[0] = '\0'; }
         
         string( const string &s )
         : len(s.len), str(new char[len+1])
@@ -68,7 +65,7 @@ namespace MKay /* Markus Klemm */
         // The usual construct()/swap() for moves
         string( string&& str ) : string() { this->swap( str ); }
         
-        ~string( void ) { delete [] str; } // Free the memory
+        ~string() { delete [] str; } // Free the memory
         
         void swap( string &s ) // Swapping two strings is easy
         {
@@ -80,22 +77,22 @@ namespace MKay /* Markus Klemm */
         char &operator[]( size_t pos ) { return str[pos]; }
         const char &operator[](size_t pos) const { return str[pos]; }
         
-        // The usual iterator stuff... Simply creating the iterators...
-        iterator begin( void ) { return iterator( str ); }
-        const_iterator begin( void ) const { return const_iterator( str ); }
-        const_iterator cbegin( void ) const { return const_iterator( str ); }
         
-        reverse_iterator rbegin( void ) { return reverse_iterator( this->end() ); }
-        const_reverse_iterator rbegin( void ) const { return const_reverse_iterator( this->end() ); }
-        const_reverse_iterator crbegin( void ) const { return const_reverse_iterator( this->end() ); }
+        iterator begin() { return iterator( str ); }
+        const_iterator begin() const { return const_iterator( str ); }
+        const_iterator cbegin() const { return const_iterator( str ); }
         
-        iterator end( void ) { return iterator( str+len ); }
-        const_iterator end( void ) const { return const_iterator( str+len ); }
-        const_iterator cend( void ) const { return const_iterator( str+len ); }
+        reverse_iterator rbegin() { return reverse_iterator( this->end() ); }
+        const_reverse_iterator rbegin() const { return const_reverse_iterator( this->end() ); }
+        const_reverse_iterator crbegin() const { return const_reverse_iterator( this->end() ); }
         
-        reverse_iterator rend( void ) { return reverse_iterator( this->begin() ); }
-        const_reverse_iterator rend( void ) const { return const_reverse_iterator( this->begin() ); }
-        const_reverse_iterator crend( void ) const { return const_reverse_iterator( this->begin() ); }
+        iterator end() { return iterator( str+len ); }
+        const_iterator end() const { return const_iterator( str+len ); }
+        const_iterator cend() const { return const_iterator( str+len ); }
+        
+        reverse_iterator rend() { return reverse_iterator( this->begin() ); }
+        const_reverse_iterator rend() const { return const_reverse_iterator( this->begin() ); }
+        const_reverse_iterator crend() const { return const_reverse_iterator( this->begin() ); }
         
         // Stream operator for easy output
         friend std::ostream &operator<<( std::ostream &out, string &str );

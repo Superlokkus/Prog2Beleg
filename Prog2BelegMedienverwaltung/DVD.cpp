@@ -32,3 +32,12 @@ unsigned DVD::DVDCount ()
 {
     return pDVDCount;
 }
+bool DVD::operator==(const DVD& r)
+{
+    if (this->pTitle == r.pTitle && this->pDirector == r.pDirector) {
+        return true;
+    }
+    else{
+        return false;
+    }
+}

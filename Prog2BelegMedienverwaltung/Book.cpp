@@ -18,3 +18,12 @@ std::string Book::name ()
 {
     
 }
+bool Book::operator==(const Book& r)
+{
+    if (this->pTitle == r.pTitle && this->pAuthor == r.pAuthor) {
+        return true;
+    }
+    else{
+        return false;
+    }
+}

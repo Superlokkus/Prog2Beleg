@@ -35,7 +35,7 @@ public:
     bool lend       (Media &toLend);
     bool giveback   (Media &toGiveBack);
     
-    std::list <Media&> lentMedia() const;
+    std::list <Media*> lentMedia() const;
     Person (const std::string &name);
     Person (const std::string &name, unsigned itemLimit);
     

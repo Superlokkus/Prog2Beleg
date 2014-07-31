@@ -14,7 +14,6 @@
 		28EE052B1986218900DF0AA2 /* Book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28EE05291986218900DF0AA2 /* Book.cpp */; };
 		28EE05441987AEAC00DF0AA2 /* DVD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28EE05421987AEAC00DF0AA2 /* DVD.cpp */; };
 		28EE05491987C1F700DF0AA2 /* menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28EE05471987C1F700DF0AA2 /* menu.cpp */; };
-		28EE054C198802E200DF0AA2 /* MediaPersonDB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28EE054A198802E200DF0AA2 /* MediaPersonDB.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,7 +44,6 @@
 		28EE05431987AEAC00DF0AA2 /* DVD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVD.h; sourceTree = "<group>"; };
 		28EE05471987C1F700DF0AA2 /* menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = menu.cpp; path = ../menu.cpp; sourceTree = "<group>"; };
 		28EE05481987C1F700DF0AA2 /* menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = menu.h; path = ../menu.h; sourceTree = "<group>"; };
-		28EE054A198802E200DF0AA2 /* MediaPersonDB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MediaPersonDB.cpp; sourceTree = "<group>"; };
 		28EE054B198802E200DF0AA2 /* MediaPersonDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPersonDB.h; sourceTree = "<group>"; };
 		28EE0551198957DA00DF0AA2 /* list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = list.h; sourceTree = "<group>"; };
 		28EE0552198957FE00DF0AA2 /* misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc.h; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 				28EE052A1986218900DF0AA2 /* Book.h */,
 				28EE05421987AEAC00DF0AA2 /* DVD.cpp */,
 				28EE05431987AEAC00DF0AA2 /* DVD.h */,
-				28EE054A198802E200DF0AA2 /* MediaPersonDB.cpp */,
 				28EE054B198802E200DF0AA2 /* MediaPersonDB.h */,
 			);
 			name = MediaManagment;
@@ -163,7 +160,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28EE054C198802E200DF0AA2 /* MediaPersonDB.cpp in Sources */,
 				28EE052B1986218900DF0AA2 /* Book.cpp in Sources */,
 				283BEC47198575260072F3D0 /* Media.cpp in Sources */,
 				28EE05491987C1F700DF0AA2 /* menu.cpp in Sources */,

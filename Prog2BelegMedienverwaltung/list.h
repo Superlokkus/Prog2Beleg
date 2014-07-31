@@ -110,18 +110,18 @@ namespace MKay /* Markus Klemm */
              appropriate const-ness is reapplied when necessary. */
         public:
             /* Biderectional iterators should be default constructible */
-            listIterator( void ) = default;
+            listIterator() = default;
             
             /* Allow the conversion 'iterator' -> 'const_iterator' */
             listIterator( const listIterator<value_type, false> &i )
             { current = i.current; }
         
-            listIterator &operator++( void ) /* Preincrement */
+            listIterator &operator++() /* Preincrement */
             { current = current->next; return *this; }
             listIterator operator++( int ) /* Postincrement */
             { listIterator copy( *this ); ++(*this); return copy; }
             
-            listIterator &operator--( void ) /* Predecrement */
+            listIterator &operator--() /* Predecrement */
             { current = current->previous; return *this; }
             listIterator operator--( int ) /* Postdecrement */
             { listIterator copy( *this ); --(*this); return copy; }
@@ -131,11 +131,11 @@ namespace MKay /* Markus Klemm */
             // The templated return types make sure that the appropriate
             // ocnst-ness is applied.
             typename choose<constIteratorFlag, const value_type, value_type>::type &
-            operator*( void ) const
+            operator*() const
             { return static_cast<Node*>( current )->element; }
             
             typename choose<constIteratorFlag, const value_type, value_type>::type *
-            operator->( void ) const
+            operator->() const
             { return &(static_cast<Node*>( current )->element); }
             
             // Comparison operators... Allow comparisons between
@@ -195,7 +195,7 @@ namespace MKay /* Markus Klemm */
         /* An empty list has size zero and
          implBase->next and implBase->previous simply point to implBase
          itself. We need this circular structure for the iterators! */
-        list( void ) : sz(0), implBase{&implBase, &implBase} {}
+        list() : sz(0), implBase{&implBase, &implBase} {}
         
         // Construct a list with 'num' entris each with value 'val'
         list( size_type num, const value_type &val ) : list()
@@ -221,11 +221,11 @@ namespace MKay /* Markus Klemm */
         
         // Destroying a list requies to free all memory!
         // clear() takes care of that.
-        ~list( void ) { this->clear(); }
+        ~list() { this->clear(); }
         
         // The usual stuff...
-        size_type size( void ) const { return sz; }
-        bool empty( void ) const { return sz == 0; }
+        size_type size() const { return sz; }
+        bool empty() const { return sz == 0; }
         
         // Swapping two lists!
         void swap( list &l )
@@ -270,31 +270,31 @@ namespace MKay /* Markus Klemm */
         }
         
         // The usual iterator stuff... Simply creating the iterators...
-        iterator begin( void ) { return iterator( implBase.next ); }
-        const_iterator begin( void ) const { return const_iterator( implBase.next ); }
-        const_iterator cbegin( void ) const { return const_iterator( implBase.next ); }
+        iterator begin() { return iterator( implBase.next ); }
+        const_iterator begin() const { return const_iterator( implBase.next ); }
+        const_iterator cbegin() const { return const_iterator( implBase.next ); }
         
-        reverse_iterator rbegin( void ) { return reverse_iterator( this->end() ); }
-        const_reverse_iterator rbegin( void ) const { return const_reverse_iterator( this->end() ); }
-        const_reverse_iterator crbegin( void ) const { return const_reverse_iterator( this->end() ); }
+        reverse_iterator rbegin() { return reverse_iterator( this->end() ); }
+        const_reverse_iterator rbegin() const { return const_reverse_iterator( this->end() ); }
+        const_reverse_iterator crbegin() const { return const_reverse_iterator( this->end() ); }
         
-        iterator end( void ) { return iterator( &implBase ); }
-        const_iterator end( void ) const { return const_iterator( &implBase ); }
-        const_iterator cend( void ) const { return const_iterator( &implBase ); }
+        iterator end() { return iterator( &implBase ); }
+        const_iterator end() const { return const_iterator( &implBase ); }
+        const_iterator cend() const { return const_iterator( &implBase ); }
         
-        reverse_iterator rend( void ) { return reverse_iterator( this->begin() ); }
-        const_reverse_iterator rend( void ) const { return const_reverse_iterator( this->begin() ); }
-        const_reverse_iterator crend( void ) const { return const_reverse_iterator( this->begin() ); }
+        reverse_iterator rend() { return reverse_iterator( this->begin() ); }
+        const_reverse_iterator rend() const { return const_reverse_iterator( this->begin() ); }
+        const_reverse_iterator crend() const { return const_reverse_iterator( this->begin() ); }
         
         // Return references to the first/last elements...
-        reference front( void ) { return *(this->begin()); }
-        const_reference front( void ) const { return *(this->begin()); }
+        reference front() { return *(this->begin()); }
+        const_reference front() const { return *(this->begin()); }
         
-        reference back( void ) { return *(--(this->end())); }
-        const_reference back( void ) const { return *(--(this->end())); }
+        reference back() { return *(--(this->end())); }
+        const_reference back() const { return *(--(this->end())); }
         
         // Remove the last/first element
-        void pop_back( void )
+        void pop_back()
         {
             // t will get removed
             Node *t = static_cast<Node*>( implBase.previous );
@@ -305,7 +305,7 @@ namespace MKay /* Markus Klemm */
             delete t; // free the memory
             sz--;
         }
-        void pop_front( void )
+        void pop_front()
         { // Almost identical to above
             Node *t = static_cast<Node*>( implBase.next );
             implBase.next = t->next;
@@ -533,7 +533,7 @@ namespace MKay /* Markus Klemm */
         }
         
         // Clearing is resisizng to 0...
-        void clear( void ) { this->resize( 0 ); }
+        void clear() { this->resize( 0 ); }
     };
     
     // Allow std::swap() to find our list through argument-dependent lookup

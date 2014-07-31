@@ -13,12 +13,12 @@ Media::Media () : pLender(nullptr)
 {
 }
 
-Person const* Media::lendstatus () const
+Person * Media::lendstatus () const
 {
     return pLender;
 }
 
-void Media::setLender(const Person *lender)
+void Media::setLender (Person *lender)
 {
     pLender = lender;
 }

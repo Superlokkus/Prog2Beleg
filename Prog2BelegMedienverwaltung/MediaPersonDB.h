@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 net.markusklemm. All rights reserved.
 //
 
-#ifndef __Prog2BelegMedienverwaltung__MediaPersonDB__
-#define __Prog2BelegMedienverwaltung__MediaPersonDB__
+#ifndef MK_MediaPersonDB
+#define MK_MediaPersonDB
 
 #include <iostream>
 #include <list>
@@ -80,7 +80,56 @@ public:
         }
         return nullptr;
     }
-    
+    std::list<Person*> getPersonList()
+    {
+        return persons;
+    }
+    std::list<Book*> getBookList()
+    {
+        return books;
+    }
+    std::list<DVD*> getDVDList()
+    {
+        return dvds;
+    }
+    void deleteBook(Book* toDelete)
+    {
+        for (auto b : books)
+        {
+            if (*b == *toDelete)
+            {
+                Person *p = b->lendstatus();
+                if (p) {
+                    p->giveback(*b);
+                }
+                books.remove(b);
+                break; //Must break, must not continue c++11 for each after modifiying
+            }
+        }
+    }
+    void deleteDVD(DVD* toDelete)
+    {
+        for (auto d : dvds)
+        {
+            if (*d == *toDelete)
+            {
+                Person *p = d->lendstatus();
+                if (p) {
+                    p->giveback(*d);
+                }
+                dvds.remove(d);
+                break; //Must break, must not continue c++11 for each after modifiying
+            }
+        }
+    }
+    bool deletePerson(Person *toDelete)
+    {
+        if (toDelete->lentMedia().empty()) {
+            persons.remove(toDelete);
+            return true;
+        }
+        return false;
+    }
 };
 
-#endif /* defined(__Prog2BelegMedienverwaltung__MediaPersonDB__) */
+#endif /* defined(MK_MediaPersonDB) */

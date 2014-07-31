@@ -48,3 +48,7 @@ void Person::setmaxItems(unsigned itemLimit)
 {
     pMaxItems = itemLimit;
 }
+std::list <Media*> Person::lentMedia() const
+{
+    return pLentMedia;
+}
