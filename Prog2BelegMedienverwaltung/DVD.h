@@ -12,7 +12,7 @@
 #include <iostream>
 #include "Media.h"
 
-class DVD:Media {
+class DVD: public Media {
 private:
     unsigned pDVDCount;
     

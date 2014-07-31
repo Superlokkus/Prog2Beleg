@@ -47,9 +47,6 @@
 		28EE05481987C1F700DF0AA2 /* menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = menu.h; path = ../menu.h; sourceTree = "<group>"; };
 		28EE054A198802E200DF0AA2 /* MediaPersonDB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MediaPersonDB.cpp; sourceTree = "<group>"; };
 		28EE054B198802E200DF0AA2 /* MediaPersonDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPersonDB.h; sourceTree = "<group>"; };
-		28EE054E1989574600DF0AA2 /* list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = list.h; sourceTree = "<group>"; };
-		28EE054F1989574600DF0AA2 /* misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc.h; sourceTree = "<group>"; };
-		28EE05501989574600DF0AA2 /* string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = string.h; sourceTree = "<group>"; };
 		28EE0551198957DA00DF0AA2 /* list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = list.h; sourceTree = "<group>"; };
 		28EE0552198957FE00DF0AA2 /* misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc.h; sourceTree = "<group>"; };
 		28EE0553198957FE00DF0AA2 /* string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = string.h; sourceTree = "<group>"; };
@@ -105,7 +102,6 @@
 				283BEC46198575260072F3D0 /* Media.h */,
 				283BEC48198576AF0072F3D0 /* Person.cpp */,
 				283BEC49198576AF0072F3D0 /* Person.h */,
-				28EE054D1989574600DF0AA2 /* c++ */,
 				28EE05291986218900DF0AA2 /* Book.cpp */,
 				28EE052A1986218900DF0AA2 /* Book.h */,
 				28EE05421987AEAC00DF0AA2 /* DVD.cpp */,
@@ -114,16 +110,6 @@
 				28EE054B198802E200DF0AA2 /* MediaPersonDB.h */,
 			);
 			name = MediaManagment;
-			sourceTree = "<group>";
-		};
-		28EE054D1989574600DF0AA2 /* c++ */ = {
-			isa = PBXGroup;
-			children = (
-				28EE054E1989574600DF0AA2 /* list.h */,
-				28EE054F1989574600DF0AA2 /* misc.h */,
-				28EE05501989574600DF0AA2 /* string.h */,
-			);
-			path = "c++";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

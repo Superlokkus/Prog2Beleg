@@ -12,14 +12,13 @@
 #include <iostream>
 #include "Media.h"
 
-class Book : Media
+class Book : public Media
 {
 public:
     const std::string pTitle;
     const std::string pAuthor;
     std::string name ();
     Book (const std::string &title, const std::string &author);
-    virtual void setLender(const Person *lender);
     
 };
 

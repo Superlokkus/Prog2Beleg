@@ -100,7 +100,7 @@ void runloop::runloop (MediaPersonDB &mpdb)
     }
 }
 
-void lendBook()
+void runloop::lendBook()
 {
     string searchString;
     cout << "Please enter book title: " << endl;
@@ -128,19 +128,85 @@ void lendBook()
     
     
 }
-void lendDVD();
+void runloop::lendDVD()
+{
+    string searchString;
+    cout << "Please enter DVD title: " << endl;
+    cin >> searchString;
+    DVD *dvdToLend = mpdb->getDVDByTitle(searchString);
+    if (dvdToLend == nullptr)
+    {
+        cout << "DVD not found by title, please enter director: " << endl;
+        cin >> searchString;
+        dvdToLend = mpdb->getDVDByDirector(searchString);
+        if (dvdToLend == nullptr) {
+            cout << "DVD not found either by director, aborting." << endl;
+            return;
+        }
+    }
+    cout << "Enter the persons name you want to lend to" << endl;
+    cin >> searchString;
+    Person * p = mpdb->getPersonByName(searchString);
+    if (p == nullptr)
+    {
+        cout << "Person not found, aborting." << endl;
+        return;
+    }
+    p->lend(*dvdToLend);
+}
 
-void giveBackBook();
-void giveBackDVD();
+void runloop::giveBackBook()
+{
+    
+}
+void runloop::giveBackDVD()
+{
+    
+}
 
-void listPersons();
-void infoPerson();
-void storePerson();
-void deletePerson();
+void runloop::listPersons()
+{
+    
+}
+void runloop::infoPerson()
+{
+    
+}
+void runloop::storePerson()
+{
+    
+}
+void runloop::deletePerson()
+{
+    
+}
 
-void listMedia();
-void infoMedia();
-void storeBook();
-void storeDVD();
-void deleteBook();
-void deleteDVD();
+void runloop::listMedia()
+{
+    
+}
+void runloop::infoMedia()
+{
+	
+}
+
+void runloop::storeBook()
+{
+	
+}
+
+void runloop::storeDVD()
+{
+	
+}
+
+void runloop::deleteBook()
+{
+	
+}
+
+void runloop::deleteDVD()
+{
+	
+}
+
