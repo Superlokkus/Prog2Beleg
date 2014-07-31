@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 net.markusklemm. All rights reserved.
 //
 
-#ifndef __Prog2BelegMedienverwaltung__menu__
-#define __Prog2BelegMedienverwaltung__menu__
+#ifndef MK_menu
+#define MK_menu
 
 #include <iostream>
 #include "Media.h"
@@ -39,4 +39,4 @@ namespace runloop {
 
 }
 
-#endif /* defined(__Prog2BelegMedienverwaltung__menu__) */
+#endif /* defined(MK_menu) */

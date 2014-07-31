@@ -232,7 +232,7 @@ void runloop::listPersons()
     cout << "Name:" << endl;
     for (auto p : mpdb->getPersonList())
     {
-        cout << p->name();
+        cout << p->name() << endl;;
     }
     cout << "==============================" << endl;
     
