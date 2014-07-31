@@ -109,6 +109,7 @@ void runloop::lendBook()
     if (bookToLend == nullptr)
     {
         cout << "Book not found by title, please enter author: " << endl;
+        cin.clear();
         cin >> searchString;
         bookToLend = mpdb->getBookByAuthor(searchString);
         if (bookToLend == nullptr) {
@@ -117,6 +118,7 @@ void runloop::lendBook()
         }
     }
     cout << "Enter the persons name you want to lend to" << endl;
+    cin.clear();
     cin >> searchString;
     Person * p = mpdb->getPersonByName(searchString);
     if (p == nullptr)
@@ -137,6 +139,7 @@ void runloop::lendDVD()
     if (dvdToLend == nullptr)
     {
         cout << "DVD not found by title, please enter director: " << endl;
+        cin.clear();
         cin >> searchString;
         dvdToLend = mpdb->getDVDByDirector(searchString);
         if (dvdToLend == nullptr) {
@@ -145,6 +148,7 @@ void runloop::lendDVD()
         }
     }
     cout << "Enter the persons name you want to lend to" << endl;
+    cin.clear();
     cin >> searchString;
     Person * p = mpdb->getPersonByName(searchString);
     if (p == nullptr)
