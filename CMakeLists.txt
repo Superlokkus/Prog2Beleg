@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 project(Prog2Beleg)
 
-find_package(Boost REQUIRED)
-include_directories(${Boost_INCLUDE_DIR})
-
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
