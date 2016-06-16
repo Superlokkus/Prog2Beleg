@@ -1,10 +1,22 @@
-#include <iostream>
-#include <QtGlobal>
+#include <QtGui>
 
+      int main(int argv, char **args)
+      {
+          QApplication app(argv, args);
 
+          QTextEdit *textEdit = new QTextEdit;
+          QPushButton *quitButton = new QPushButton("&Quit");
 
-int main() {
-    std::cout << "Qt Version is " << qVersion() << std::endl;
+          QObject::connect(quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
 
-    return 0;
-}
+          QVBoxLayout *layout = new QVBoxLayout;
+          layout->addWidget(textEdit);
+          layout->addWidget(quitButton);
+
+          QWidget window;
+          window.setLayout(layout);
+
+          window.show();
+
+          return app.exec();
+      }
