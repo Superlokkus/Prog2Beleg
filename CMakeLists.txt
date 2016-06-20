@@ -18,8 +18,10 @@ add_executable(Prog2Beleg ${SOURCE_FILES})
 if(NOT(Qt4_FOUND))
     target_link_libraries(Prog2Beleg Qt5::Widgets)
     else()
-    target_link_libraries(Prog2Beleg Qt4::QtGui)
+    target_link_libraries(Prog2Beleg Qt4::QtCore Qt4::QtDeclarative)
 endif()
+
+configure_file(main_window.qml main_window.qml COPYONLY)
 
 
 set_property(TARGET Prog2Beleg PROPERTY LINKER_LANGUAGE CXX)

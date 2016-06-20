@@ -1,10 +1,13 @@
-#include <iostream>
-#include <QtGlobal>
+#include <QtGui/QApplication>
+#include <QDeclarativeView>
 
 
+int main(int argc, char* argv[]) {
+    QApplication this_application(argc,argv);
 
-int main() {
-    std::cout << "Qt Version is " << qVersion() << std::endl;
+    QDeclarativeView *view = new QDeclarativeView;
+    view->setSource(QUrl::fromLocalFile("main_window.qml"));
+    view->show();
 
-    return 0;
+    return this_application.exec();
 }
