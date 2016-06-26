@@ -12,7 +12,7 @@ find_package(Qt4 REQUIRED)
 
 include_directories(${Qt_INCLUDE_DIR})
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp Medium.cpp Medium.h)
 add_executable(Prog2Beleg ${SOURCE_FILES})
 
 if(NOT(Qt4_FOUND))

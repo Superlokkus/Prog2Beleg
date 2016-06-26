@@ -1,15 +1,13 @@
 import QtQuick 1.0
 
  Rectangle {
-     id: page
-     width: 500; height: 200
-     color: "lightgray"
+     id: simplebutton
+     color: "grey"
+     width: 150; height: 75
 
-     Text {
-         id: helloText
-         text: "Hello world!"
-         y: 30
-         anchors.horizontalCenter: page.horizontalCenter
-         font.pointSize: 24; font.bold: true
+     Text{
+         id: buttonLabel
+         anchors.centerIn: parent
+         text: "button label"
      }
  }
