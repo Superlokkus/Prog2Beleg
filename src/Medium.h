@@ -1,4 +1,4 @@
-/*! @file Medium.h
+/*! @file medium.h
  * */
 
 #ifndef PROG2BELEG_MEDIUM_H
@@ -6,15 +6,18 @@
 
 #include <string>
 
-class Medium {
+class medium {
 public:
-    virtual std::string get_Description() const;
+    using id_t = uint8_t;
 
-    Medium () = delete;
-    Medium (std::string uid);
+    virtual std::string get_description() const = 0;
+
+    medium() = delete;
+
+    medium(id_t id);
 
 protected:
-    std::string uid;
+    id_t id_;
 };
 
 

@@ -2,13 +2,9 @@
 // Created by Markus Klemm on 22.06.16.
 //
 
-#include "Medium.h"
+#include "medium.h"
 
-Medium::Medium(std::string uid)
-: uid(uid)
+medium::medium(id_t id)
+        : id_(id)
 { }
 
-std::string Medium::get_Description() const {
-
-    return {};
-}

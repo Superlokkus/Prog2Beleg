@@ -15,9 +15,16 @@ find_package(Qt4 REQUIRED)
 
 include_directories(${Qt_INCLUDE_DIR})
 
-set(SOURCE_FILES ${PROJECT_SOURCE_DIR}/main.cpp
-        ${PROJECT_SOURCE_DIR}/Medium.cpp
-        ${PROJECT_SOURCE_DIR}/Medium.h)
+set(SOURCE_FILES
+        ${PROJECT_SOURCE_DIR}/main.cpp
+        ${PROJECT_SOURCE_DIR}/medium.cpp
+        ${PROJECT_SOURCE_DIR}/medium.h
+        ${PROJECT_SOURCE_DIR}/book.cpp
+        ${PROJECT_SOURCE_DIR}/book.h
+        ${PROJECT_SOURCE_DIR}/dvd.cpp
+        ${PROJECT_SOURCE_DIR}/dvd.h
+        ${PROJECT_SOURCE_DIR}/person.cpp
+        ${PROJECT_SOURCE_DIR}/person.h)
 add_executable(Prog2Beleg ${SOURCE_FILES})
 
 if(NOT(Qt4_FOUND))
