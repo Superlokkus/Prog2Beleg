@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 project(Prog2Beleg)
 
+set (PROJECT_SOURCE_DIR ${CMAKE_SOURCE_DIR}/src)
+set (PROJECT_RESSOURCE_DIR ${CMAKE_SOURCE_DIR}/res)
+
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -12,7 +15,9 @@ find_package(Qt4 REQUIRED)
 
 include_directories(${Qt_INCLUDE_DIR})
 
-set(SOURCE_FILES main.cpp Medium.cpp Medium.h)
+set(SOURCE_FILES ${PROJECT_SOURCE_DIR}/main.cpp
+        ${PROJECT_SOURCE_DIR}/Medium.cpp
+        ${PROJECT_SOURCE_DIR}/Medium.h)
 add_executable(Prog2Beleg ${SOURCE_FILES})
 
 if(NOT(Qt4_FOUND))
@@ -21,7 +26,7 @@ if(NOT(Qt4_FOUND))
     target_link_libraries(Prog2Beleg Qt4::QtCore Qt4::QtDeclarative)
 endif()
 
-configure_file(main_window.qml main_window.qml COPYONLY)
+configure_file(${PROJECT_RESSOURCE_DIR}/main_window.qml main_window.qml COPYONLY)
 
 
 set_property(TARGET Prog2Beleg PROPERTY LINKER_LANGUAGE CXX)
