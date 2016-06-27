@@ -16,6 +16,8 @@ public:
 
     medium(id_t id);
 
+    virtual ~medium() { }
+
 protected:
     id_t id_;
 };

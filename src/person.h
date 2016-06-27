@@ -5,25 +5,15 @@
 #ifndef PROG2BELEG_PERSON_H
 #define PROG2BELEG_PERSON_H
 
-#include <vector>
-#include <memory>
+#include <string>
 
-#include "medium.h"
-
-class person {
-public:
-    const std::vector<std::shared_ptr<medium>> &lent_mediums() const;
-
-    /*! @brief Tries to lend the given medium
-     * @param m Medium which is trying to be lend
-     * @return False if the person is not allowed or able to lend the medium
-     * */
-    bool lend_medium(std::shared_ptr<medium> m);
-
-    uint8_t id;
+struct person {
+    using id_t = uint8_t;
+    id_t id;
 
 private:
-    std::vector<std::shared_ptr<medium>> lent_mediums_;
+    std::wstring name_;
+    std::wstring surname_;
 };
 
 

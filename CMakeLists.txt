@@ -24,7 +24,10 @@ set(SOURCE_FILES
         ${PROJECT_SOURCE_DIR}/dvd.cpp
         ${PROJECT_SOURCE_DIR}/dvd.h
         ${PROJECT_SOURCE_DIR}/person.cpp
-        ${PROJECT_SOURCE_DIR}/person.h)
+        ${PROJECT_SOURCE_DIR}/person.h
+        ${PROJECT_SOURCE_DIR}/library.cpp
+        ${PROJECT_SOURCE_DIR}/library.h
+        ${PROJECT_SOURCE_DIR}/library_file.h)
 add_executable(Prog2Beleg ${SOURCE_FILES})
 
 if(NOT(Qt4_FOUND))
