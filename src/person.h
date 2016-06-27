@@ -8,12 +8,28 @@
 #include <string>
 
 struct person {
-    using id_t = uint8_t;
-    id_t id;
+    using id_t = uint64_t;
 
+    std::wstring name;
+    std::wstring surname;
+
+    person() = delete;
+
+    person(id_t id, std::wstring name, std::wstring surname);
+
+    id_t get_id() const {
+        return this->id_;
+    }
+
+    bool operator==(const person &r) const {
+        return this->id_ == r.id_;
+    }
+
+    bool operator<(const person &r) const {
+        return this->id_ < r.id_;
+    }
 private:
-    std::wstring name_;
-    std::wstring surname_;
+    id_t id_;
 };
 
 
