@@ -5,7 +5,6 @@
 #ifndef PROG2BELEG_LIBRARY_H
 #define PROG2BELEG_LIBRARY_H
 
-#include <vector>
 #include <memory>
 #include <map>
 #include <set>
@@ -18,7 +17,7 @@ class library_file;
 
 class library {
 public:
-    const std::vector<std::shared_ptr<medium>> &lent_mediums(
+    const std::set<std::shared_ptr<medium>> &lent_mediums(
             std::shared_ptr<person> p) const;
 
     /*! @brief Returns the person that this medium is lent to
@@ -39,8 +38,6 @@ public:
 
     void register_medium(std::shared_ptr<medium> m);
 
-    void register_medium(const medium &m);
-
     void register_person(std::shared_ptr<person> p);
 
     void register_person(const person &p);
@@ -56,7 +53,7 @@ private:
     std::set<std::shared_ptr<medium>> mediums_;
     std::map<std::shared_ptr<person>,
             std::set<std::shared_ptr<medium>>> lent_mediums_by_person_;
-    std::map<std::shared_ptr<medium>, std::shared_ptr<person>> lent_mediums_by_medium_;
+    std::map<std::shared_ptr<medium>, std::shared_ptr<person>> lent_to_person_by_medium_;
 };
 
 
