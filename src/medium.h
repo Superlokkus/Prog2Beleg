@@ -22,7 +22,7 @@ public:
         return this->id_ < r.id_;
     }
 
-    virtual std::string get_description() const = 0;
+    virtual std::wstring get_description() const = 0;
 
     medium() = delete;
 

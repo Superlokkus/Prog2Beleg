@@ -21,7 +21,10 @@ public:
     const std::vector<std::shared_ptr<medium>> &lent_mediums(
             std::shared_ptr<person> p) const;
 
-    std::shared_ptr<person> lent_to_person(std::shared_ptr<person> p);
+    /*! @brief Returns the person that this medium is lent to
+     * @return The person which lent this medium or iff not lent to anyone, a default constructed shared_ptr
+     * */
+    std::shared_ptr<person> lent_to_person(std::shared_ptr<medium> m);
 
     /*! @brief Tries to lend the given medium
      * @param m Medium which is trying to be lend
