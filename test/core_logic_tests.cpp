@@ -64,6 +64,32 @@ private slots:
         QVERIFY(lib.lend_medium(b1,p1));
         QVERIFY(!lib.lend_medium(b1,p0));
         QVERIFY(lib.lend_medium(d3,p1));
+        QVERIFY(!lib.lend_medium(d3, p42));
+
+        auto p1s_mediums = lib.lent_mediums(p1);
+        size_t p1s_mediums_element_count = 0;
+        for (auto i = p1s_mediums.cbegin(); i != p1s_mediums.cend(); ++i, ++p1s_mediums_element_count);
+        QVERIFY(p1s_mediums_element_count == 2);
+        QVERIFY(p1s_mediums.find(b1) != p1s_mediums.end());
+        QVERIFY(p1s_mediums.find(d3) != p1s_mediums.end() && p1s_mediums.find(d3)->get()->get_id() == d3->get_id());
+
+        QVERIFY(lib.lent_to_person(b2) == std::shared_ptr<person>{});
+        lib.give_back(b1);
+        QVERIFY(lib.lend_medium(b1, p0));
+        QVERIFY(lib.lent_to_person(b1) == p0);
+
+        QVERIFY(!lib.erase_person(p0));
+        lib.give_back(b1);
+        QVERIFY(lib.erase_person(p0));
+        QVERIFY(lib.lend_medium(b1, p42));
+        QVERIFY(lib.lent_to_person(b1) == p42);
+        persons = lib.all_persons();
+        QVERIFY(persons.find(p0) == persons.end());
+        lib.erase_medium(b1);
+        auto mediums = lib.all_mediums();
+        QVERIFY(mediums.find(b1) == mediums.end());
+        auto p42_mediums = lib.lent_mediums(p42);
+        QVERIFY(p42_mediums.find(b1) == p42_mediums.end());
 
     };
 };
