@@ -42,9 +42,14 @@ public:
 
     void register_person(const person &p);
 
+    /*! @return False if person still has e.g. mediums lent out, otherwise true
+     * */
     bool erase_person(std::shared_ptr<person> p);
 
     void erase_medium(std::shared_ptr<medium> m);
+
+    std::set<std::shared_ptr<person>> all_persons() const;
+    std::set<std::shared_ptr<medium>> all_mediums() const;
 
 private:
     template<typename F>

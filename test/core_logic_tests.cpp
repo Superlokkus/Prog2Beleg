@@ -3,6 +3,9 @@
 #include "../src/person.h"
 #include "../src/book.h"
 #include "../src/dvd.h"
+#include "../src/library.h"
+#include <memory>
+#include <algorithm>
 
 class core_logic_tests : public QObject {
 Q_OBJECT
@@ -34,6 +37,33 @@ private slots:
     }
 
     void library_test() {
+        auto b1 = std::make_shared<book>(1, L"1984", L"George Orwell");
+        auto b2 = std::make_shared<book>(2, L"Sophies Welt", L"Jostein Gaarder");
+        auto d3 = std::make_shared<dvd>(3, L"Alien", L"Ridley Scott");
+        auto p42 = std::make_shared<person>(42, L"Mark", L"surter");
+        auto p0 = std::make_shared<person>(0, L"Cathleen", L"Whatever");
+        person p1_local(1, L"NotCathleen", L"Either");
+
+        library lib;
+        lib.register_person(p0);
+        lib.register_person(p42);
+        lib.register_person(p1_local);
+        lib.register_medium(b1);
+        lib.register_medium(b2);
+        lib.register_medium(d3);
+
+        auto persons = lib.all_persons();
+        auto p1_it = std::find_if(persons.begin(),persons.end(),
+                                  [p1_local](const std::shared_ptr<person>& p)->bool{
+                                     return p->get_id() == p1_local.get_id();
+                                  });
+        QVERIFY(p1_it != persons.end());
+        auto p1 = *p1_it;
+        QVERIFY(*p1 == p1_local);
+
+        QVERIFY(lib.lend_medium(b1,p1));
+        QVERIFY(!lib.lend_medium(b1,p0));
+        QVERIFY(lib.lend_medium(d3,p1));
 
     };
 };

@@ -53,6 +53,38 @@ void library::give_back(std::shared_ptr<medium> m) {
 }
 
 
+std::set<std::shared_ptr<person>> library::all_persons() const {
+    return this->persons_;
+}
+
+
+std::set<std::shared_ptr<medium>> library::all_mediums() const {
+    return this->mediums_;
+}
+
+
+bool library::erase_person(std::shared_ptr<person> p) {
+    if(this->lent_mediums(p).empty()){
+        this->persons_.erase(p);
+        return true;
+    }
+    return false;
+}
+
+
+void library::erase_medium(std::shared_ptr<medium> m) {
+    if(this->lent_to_person(m)){
+        this->give_back(m);
+    }
+    this->mediums_.erase(m);
+}
+
+
+
+
+
+
+
 
 
 
