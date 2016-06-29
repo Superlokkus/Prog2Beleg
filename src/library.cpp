@@ -4,7 +4,6 @@
 
 #include "library.h"
 
-#include <utility>
 
 void library::register_person(std::shared_ptr<person> p) {
     this->persons_.emplace(p);
@@ -37,7 +36,11 @@ bool library::lend_medium(std::shared_ptr<medium> m, std::shared_ptr<person> p) 
 
 
 std::shared_ptr<person> library::lent_to_person(std::shared_ptr<medium> m) {
-    return this->lent_to_person_by_medium_[m];
+    auto medium_person = this->lent_to_person_by_medium_.find(m);
+    if (medium_person == this->lent_to_person_by_medium_.end()) {
+        return {};
+    }
+    return medium_person->second;
 }
 
 
