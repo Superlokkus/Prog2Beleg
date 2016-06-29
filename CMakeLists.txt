@@ -10,8 +10,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 #Only on my OSX MBP13
-set(QTDIR "/opt/local/libexec/qt4" CACHE PATH "FOO" FORCE)
-set(QT_QMAKE_EXECUTABLE "/opt/local/libexec/qt4/bin/qmake" CACHE FILEPATH "BAR" FORCE)
+#set(QTDIR "/opt/local/libexec/qt4" CACHE PATH "FOO" FORCE)
+#set(QT_QMAKE_EXECUTABLE "/opt/local/libexec/qt4/bin/qmake" CACHE FILEPATH "BAR" FORCE)
 
 find_package(Qt4 REQUIRED)
 
