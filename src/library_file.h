@@ -7,7 +7,15 @@
 
 template <typename F>
 class library_file {
+public:
+    library_file() = delete;
 
+    library_file(F &&file_stream) :
+            file_stream(std::move(file_stream)) { }
+
+
+private:
+    F file_stream;
 };
 
 

@@ -4,8 +4,13 @@
 #include "../src/book.h"
 #include "../src/dvd.h"
 #include "../src/library.h"
+#include "../src/library_file.h"
+#include <fstream>
+#include <cstdio>
 #include <memory>
 #include <algorithm>
+#include <QFile>
+#include <QTemporaryFile>
 
 class core_logic_tests : public QObject {
 Q_OBJECT
@@ -92,6 +97,14 @@ private slots:
         QVERIFY(p42_mediums.find(b1) == p42_mediums.end());
 
     };
+
+    void library_file_test() {
+        const std::string temp_file_name_1 = std::tmpnam(NULL);
+        auto fstream_lib = library_file<std::fstream>{std::fstream{temp_file_name_1}};
+        //QTemporaryFile qfile;
+        //auto qfile_lib = library_file<QFile&>{qfile};
+
+    }
 };
 
 QTEST_MAIN(core_logic_tests)
