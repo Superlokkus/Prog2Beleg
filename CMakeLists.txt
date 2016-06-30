@@ -36,8 +36,8 @@ set(qt_adapter_files
         )
 
 
-add_executable(Prog2Beleg ${PROJECT_SOURCE_DIR}/main.cpp ${SOURCE_FILES})
-target_link_libraries(Prog2Beleg Qt4::QtCore Qt4::QtDeclarative)
+add_executable(Prog2Beleg ${PROJECT_SOURCE_DIR}/main.cpp ${SOURCE_FILES} ${core_logic_files} ${qt_adapter_files})
+target_link_libraries(Prog2Beleg Qt4::QtCore Qt4::QtDeclarative Qt4::QtGui)
 configure_file(${PROJECT_RESSOURCE_DIR}/main_window.qml main_window.qml COPYONLY)
 
 set_property(TARGET Prog2Beleg PROPERTY LINKER_LANGUAGE CXX)

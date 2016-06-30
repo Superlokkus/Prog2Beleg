@@ -5,30 +5,43 @@
 #define PROG2BELEG_LIBRARY_QT_ADAPTERS_H
 
 #include <memory>
+#include <iterator>
 
-#include <QAbstractListModel>
+#include <QAbstractTableModel>
 #include "library.h"
 
-class library_person_view : public QAbstractListModel {
+class library_person_view : public QAbstractTableModel {
 public:
     library_person_view() = delete;
 
     library_person_view(std::shared_ptr<library> l) :
-            QAbstractListModel(), library_(l) { }
+            QAbstractTableModel(), library_(l) { }
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override {
         return this->library_->all_persons().size();
     }
 
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override {
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override {
         if (role != Qt::DisplayRole) {
             return {};
         }
-        if (section == 0) {
+        auto persons = library_->all_persons();
+        if (persons.size() < index.row()) {
             return {};
         }
+        auto person = persons.cbegin();
+        std::advance(person, index.row());
+        if (index.column() == 0) {
+            return QVariant{QString::fromStdWString(person->get()->name)};
+        } else if (index.column() == 1) {
+            return QVariant{QString::fromStdWString(person->get()->surname)};
+        }
         return {};
-        //TODO
+
+    }
+
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override {
+        return 2;
     }
 
 private:
