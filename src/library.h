@@ -11,6 +11,8 @@
 
 #include "medium.h"
 #include "person.h"
+#include "book.h"
+#include "dvd.h"
 
 template <typename F>
 class library_file;
@@ -36,7 +38,9 @@ public:
      * */
     void give_back(std::shared_ptr<medium> m);
 
-    void register_medium(std::shared_ptr<medium> m);
+    void register_medium(std::shared_ptr<book> b);
+
+    void register_medium(std::shared_ptr<dvd> d);
 
     void register_person(std::shared_ptr<person> p);
 
@@ -56,6 +60,8 @@ private:
     friend class library_file;
     std::set<std::shared_ptr<person>> persons_;
     std::set<std::shared_ptr<medium>> mediums_;
+    std::set<std::shared_ptr<book>> books_;
+    std::set<std::shared_ptr<dvd>> dvds_;
     std::map<std::shared_ptr<person>,
             std::set<std::shared_ptr<medium>>> lent_mediums_by_person_;
     std::map<std::shared_ptr<medium>, std::shared_ptr<person>> lent_to_person_by_medium_;

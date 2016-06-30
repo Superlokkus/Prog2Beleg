@@ -15,8 +15,15 @@ void library::register_person(const person &p) {
 }
 
 
-void library::register_medium(std::shared_ptr<medium> m) {
-    this->mediums_.emplace(m);
+void library::register_medium(std::shared_ptr<book> b) {
+    this->mediums_.emplace(b);
+    this->books_.emplace(b);
+}
+
+
+void library::register_medium(std::shared_ptr<dvd> d) {
+    this->mediums_.emplace(d);
+    this->dvds_.emplace(d);
 }
 
 
