@@ -36,7 +36,9 @@ public:
         connect(person_action, SIGNAL(triggered()), this, SLOT(show_persons()));
         connect(book_action, SIGNAL(triggered()), this, SLOT(show_books()));
         connect(dvd_action, SIGNAL(triggered()), this, SLOT(show_dvds()));
-        //connect(lent_mediums_action, SIGNAL(triggered()), this, SLOT(show_books()));//TODO
+        connect(lent_mediums_action, SIGNAL(triggered()), this, SLOT(lendt_mediums()));
+        connect(lend_action, SIGNAL(triggered()), this, SLOT(lend_medium()));
+        connect(give_back_action, SIGNAL(triggered()), this, SLOT(give_back()));
 
         central_table = new QTableView(this);
         central_table->setModel(current_model.get());
@@ -182,26 +184,63 @@ public slots:
         }
     }
 
-//    void delete_medium() {
-//        QStringList items_by_string;
-//        auto mediums = this->lib->all_mediums();
-//        for (auto medium : mediums) {
-//            items_by_string.append(
-//                    QString::fromStdWString(std::to_wstring(medium->get_id()) + L" " + medium->get_description()));
-//        }
-//        bool ok;
-//        QString item = QInputDialog::getItem(this, QString::fromStdWString(L"Lösche Medium"),
-//                                             QString::fromStdWString(L"Medium: "), items_by_string, 0, false, &ok);
-//        if (!ok) {
-//            return;
-//        }
-//        int i = items_by_string.indexOf(item);
-//        auto medium = mediums.begin();
-//        if (i > -1 && i < mediums.size()) {
-//            std::advance(medium, i);
-//            this->lib->erase_medium(*medium);
-//        }
-// }
+    void lend_medium() {
+        QStringList items_by_string;
+        auto mediums = this->lib->all_mediums();
+        for (auto medium : mediums) {
+            items_by_string.append(
+                    QString::fromStdWString(std::to_wstring(medium->get_id()) + L" " + medium->get_description()));
+        }
+        bool ok;
+        QString item = QInputDialog::getItem(this, QString::fromStdWString(L"Leihe Medium aus"),
+                                             QString::fromStdWString(L"Medium: "), items_by_string, 0, false, &ok);
+        if (!ok) {
+            return;
+        }
+        int i = items_by_string.indexOf(item);
+        auto medium = mediums.begin();
+        if (i > -1 && i < mediums.size()) {
+            std::advance(medium, i);
+        } else {
+            QMessageBox::critical(this, QString::fromStdWString(L"Should never happen"),
+                                  QString::fromStdWString(L"Medium nicht gefunden"));
+            return;
+        }
+        auto persons = this->lib->all_persons();
+        items_by_string.clear();
+        for (auto person : persons) {
+            items_by_string.append(QString::fromStdWString(
+                    std::to_wstring(person->get_id()) + L" " + person->name + L" " + person->surname));
+        }
+        item = QInputDialog::getItem(this, QString::fromStdWString(L"Leihe Medium aus"),
+                                     QString::fromStdWString(L"Person: "), items_by_string, 0, false, &ok);
+        if (!ok) {
+            return;
+        }
+        i = items_by_string.indexOf(item);
+        auto person = persons.begin();
+        if (i > -1 && i < persons.size()) {
+            std::advance(person, i);
+        } else {
+            QMessageBox::critical(this, QString::fromStdWString(L"Should never happen"),
+                                  QString::fromStdWString(L"Person nicht gefunden"));
+            return;
+        }
+        if (this->lib->lend_medium(*medium, *person)) {
+            QMessageBox::information(this, QString::fromStdWString(L"Erfolg"),
+                                     QString::fromStdWString(L"Medium verliehen"));
+        } else {
+            QMessageBox::warning(this, QString::fromStdWString(L"Misserfolg"),
+                                 QString::fromStdWString(L"Medium schon verliehen"));
+        }
+
+    }
+
+    void give_back() {
+
+    }
+
+
 private:
     QTableView *central_table;
     std::shared_ptr<library> lib;
