@@ -82,12 +82,21 @@ bool library::erase_person(std::shared_ptr<person> p) {
 }
 
 
-void library::erase_medium(std::shared_ptr<medium> m) {
-    if(this->lent_to_person(m)){
-        this->give_back(m);
+void library::erase_medium(std::shared_ptr<book> b) {
+    if (this->lent_to_person(b)) {
+        this->give_back(b);
     }
-    this->mediums_.erase(m);
-    //TODO
+    this->mediums_.erase(b);
+    this->books_.erase(b);
+}
+
+
+void library::erase_medium(std::shared_ptr<dvd> d) {
+    if (this->lent_to_person(d)) {
+        this->give_back(d);
+    }
+    this->mediums_.erase(d);
+    this->dvds_.erase(d);
 }
 
 

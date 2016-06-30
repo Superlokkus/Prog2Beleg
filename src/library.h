@@ -50,7 +50,9 @@ public:
      * */
     bool erase_person(std::shared_ptr<person> p);
 
-    void erase_medium(std::shared_ptr<medium> m);
+    void erase_medium(std::shared_ptr<book> b);
+
+    void erase_medium(std::shared_ptr<dvd> d);
 
     std::set<std::shared_ptr<person>> all_persons() const;
     std::set<std::shared_ptr<medium>> all_mediums() const;
