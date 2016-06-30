@@ -100,7 +100,7 @@ private slots:
 
     void library_file_test() {
         const std::string temp_file_name_1 = std::tmpnam(NULL);
-        auto fstream_lib = library_file<std::fstream>{std::fstream{temp_file_name_1}};
+        //auto fstream_lib = library_file<std::fstream>{std::fstream{temp_file_name_1}};
         //QTemporaryFile qfile;
         //auto qfile_lib = library_file<QFile&>{qfile};
 

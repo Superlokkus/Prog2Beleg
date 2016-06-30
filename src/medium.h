@@ -5,6 +5,7 @@
 #define PROG2BELEG_MEDIUM_H
 
 #include <string>
+#include <atomic>
 
 class medium {
 public:
@@ -30,8 +31,14 @@ public:
 
     virtual ~medium() { }
 
+    static id_t get_next_id() {
+        return last_seen_max_id += 1;
+    }
+
 protected:
     id_t id_;
+private:
+    static std::atomic<id_t> last_seen_max_id;
 };
 
 

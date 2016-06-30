@@ -128,6 +128,13 @@ public:
         return QVariant{};
     }
 
+    void layout_about_to_change() {
+        this->layoutAboutToBeChanged();
+    }
+
+    void layout_changed() {
+        this->layoutChanged();
+    }
 
 private:
     std::shared_ptr<library> library_;
