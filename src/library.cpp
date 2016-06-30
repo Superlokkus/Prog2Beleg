@@ -90,6 +90,19 @@ void library::erase_medium(std::shared_ptr<medium> m) {
 }
 
 
+std::set<std::shared_ptr<book>> library::all_books() const {
+    return this->books_;
+}
+
+
+std::set<std::shared_ptr<dvd>> library::all_dvds() const {
+    return this->dvds_;
+}
+
+
+
+
+
 
 
 

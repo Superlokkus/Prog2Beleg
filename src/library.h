@@ -55,6 +55,10 @@ public:
     std::set<std::shared_ptr<person>> all_persons() const;
     std::set<std::shared_ptr<medium>> all_mediums() const;
 
+    std::set<std::shared_ptr<book>> all_books() const;
+
+    std::set<std::shared_ptr<dvd>> all_dvds() const;
+
 private:
     template<typename F>
     friend class library_file;
