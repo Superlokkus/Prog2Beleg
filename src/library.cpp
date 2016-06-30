@@ -87,6 +87,7 @@ void library::erase_medium(std::shared_ptr<medium> m) {
         this->give_back(m);
     }
     this->mediums_.erase(m);
+    //TODO
 }
 
 

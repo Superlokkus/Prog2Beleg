@@ -5,6 +5,7 @@
 #include <QtGui/QApplication>
 #include <QtGui>
 #include <QDockWidget>
+#include <string>
 
 #include "library_qt_adapters.h"
 
@@ -52,9 +53,14 @@ public:
         auto add_book_action = add_menu->addAction(QString::fromStdWString(L"Buch"));
         auto add_dvd_action = add_menu->addAction(QString::fromStdWString(L"DVD"));
 
+        auto delete_menu = this->menuBar()->addMenu(QString::fromStdWString(L"Lösche"));
+        auto delete_person_action = delete_menu->addAction(QString::fromStdWString(L"Person"));
+        auto delete_medium_action = delete_menu->addAction(QString::fromStdWString(L"Medium"));
+
         connect(add_person_action, SIGNAL(triggered()), this, SLOT(add_person()));
         connect(add_book_action, SIGNAL(triggered()), this, SLOT(add_book()));
         connect(add_dvd_action, SIGNAL(triggered()), this, SLOT(add_dvd()));
+        connect(delete_medium_action, SIGNAL(triggered()), this, SLOT(delete_medium()));
     }
 
 public slots:
@@ -130,10 +136,28 @@ public slots:
         }
         this->lib->register_person(std::make_shared<person>(id, name.toStdWString(),
                                                             surname.toStdWString()));
-
-
     }
 
+    void delete_medium() {
+        QStringList items_by_string;
+        auto mediums = this->lib->all_mediums();
+        for (auto medium : mediums) {
+            items_by_string.append(
+                    QString::fromStdWString(std::to_wstring(medium->get_id()) + L" " + medium->get_description()));
+        }
+        bool ok;
+        QString item = QInputDialog::getItem(this, QString::fromStdWString(L"Lösche Medium"),
+                                             QString::fromStdWString(L"Medium: "), items_by_string, 0, false, &ok);
+        if (!ok) {
+            return;
+        }
+        int i = items_by_string.indexOf(item);
+        auto medium = mediums.begin();
+        if (i > -1 && i < mediums.size()) {
+            std::advance(medium, i);
+            this->lib->erase_medium(*medium);
+        }
+    }
 private:
     QTableView *central_table;
     std::shared_ptr<library> lib;
