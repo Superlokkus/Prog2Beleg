@@ -30,6 +30,11 @@ set(core_logic_files
         ${PROJECT_SOURCE_DIR}/library.h
         ${PROJECT_SOURCE_DIR}/library_file.h)
 
+set(qt_adapter_files
+        ${PROJECT_SOURCE_DIR}/library_qt_adapters.h
+        ${PROJECT_SOURCE_DIR}/library_qt_adapters.cpp
+        )
+
 
 add_executable(Prog2Beleg ${PROJECT_SOURCE_DIR}/main.cpp ${SOURCE_FILES})
 target_link_libraries(Prog2Beleg Qt4::QtCore Qt4::QtDeclarative)

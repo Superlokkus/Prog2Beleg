@@ -4,7 +4,7 @@
 
 #include <QtGui/QApplication>
 #include <QDeclarativeView>
-
+#include "library_qt_adapters.h"
 
 int main(int argc, char* argv[]) {
     QApplication this_application(argc,argv);
