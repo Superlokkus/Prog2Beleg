@@ -118,7 +118,6 @@ public slots:
         this->lib->register_medium(std::make_shared<dvd>(medium::get_next_id(), title.toStdWString(),
                                                          director.toStdWString()));
 
-
     }
 
     void add_person() {
@@ -237,7 +236,54 @@ public slots:
     }
 
     void give_back() {
-
+        QStringList items_by_string;
+        bool ok;
+        auto persons = this->lib->all_persons();
+        items_by_string.clear();
+        for (auto person : persons) {
+            items_by_string.append(QString::fromStdWString(
+                    std::to_wstring(person->get_id()) + L" " + person->name + L" " + person->surname));
+        }
+        QString item = QInputDialog::getItem(this, QString::fromStdWString(L"Gib Medium zurück"),
+                                             QString::fromStdWString(L"Person: "), items_by_string, 0, false, &ok);
+        if (!ok) {
+            return;
+        }
+        auto i = items_by_string.indexOf(item);
+        auto person = persons.begin();
+        if (i > -1 && i < persons.size()) {
+            std::advance(person, i);
+        } else {
+            QMessageBox::critical(this, QString::fromStdWString(L"Should never happen"),
+                                  QString::fromStdWString(L"Person nicht gefunden"));
+            return;
+        }
+        try {
+            auto mediums = this->lib->lent_mediums(*person);
+            items_by_string.clear();
+            for (auto medium : mediums) {
+                items_by_string.append(
+                        QString::fromStdWString(std::to_wstring(medium->get_id()) + L" " + medium->get_description()));
+            }
+            item = QInputDialog::getItem(this, QString::fromStdWString(L"Gib Medium zurück"),
+                                         QString::fromStdWString(L"Medium: "), items_by_string, 0, false, &ok);
+            if (!ok) {
+                return;
+            }
+            i = items_by_string.indexOf(item);
+            auto medium = mediums.begin();
+            if (i > -1 && i < mediums.size()) {
+                std::advance(medium, i);
+            } else {
+                QMessageBox::critical(this, QString::fromStdWString(L"Should never happen"),
+                                      QString::fromStdWString(L"Medium nicht gefunden"));
+                return;
+            }
+            this->lib->give_back(*medium);
+        } catch (const std::exception &e) {
+            QMessageBox::critical(this, QString::fromStdWString(L"Misserfolg"),
+                                  QString::fromStdWString(L"Person hat nichts ausgeliehen"));
+        }
     }
 
 
