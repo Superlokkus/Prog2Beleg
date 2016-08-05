@@ -13,7 +13,14 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 #set(QTDIR "/opt/local/libexec/qt4" CACHE PATH "FOO" FORCE)
 #set(QT_QMAKE_EXECUTABLE "/opt/local/libexec/qt4/bin/qmake" CACHE FILEPATH "BAR" FORCE)
 
-find_package(Qt4 REQUIRED)
+find_package(Qt5Core REQUIRED)
+find_package(Qt5Gui REQUIRED)
+find_package(Qt5Test REQUIRED)
+find_package(Qt5Quick REQUIRED)
+find_package(Qt5QML REQUIRED)
+find_package(Qt5Widgets REQUIRED)
+
+
 
 include_directories(${Qt_INCLUDE_DIR})
 
@@ -37,7 +44,7 @@ set(qt_adapter_files
 
 
 add_executable(Prog2Beleg ${PROJECT_SOURCE_DIR}/main.cpp ${SOURCE_FILES} ${core_logic_files} ${qt_adapter_files})
-target_link_libraries(Prog2Beleg Qt4::QtCore Qt4::QtDeclarative Qt4::QtGui)
+target_link_libraries(Prog2Beleg Qt5::Core Qt5::Quick Qt5::Widgets)
 configure_file(${PROJECT_RESSOURCE_DIR}/main_window.qml main_window.qml COPYONLY)
 
 set_property(TARGET Prog2Beleg PROPERTY LINKER_LANGUAGE CXX)
@@ -45,7 +52,7 @@ set_property(TARGET Prog2Beleg PROPERTY CXX_STANDARD 11)
 
 enable_testing()
 add_executable(core_logic_test ${PROJECT_TEST_DIR}/core_logic_tests.cpp ${core_logic_files})
-target_link_libraries(core_logic_test Qt4::QtTest Qt4::QtCore Qt4::QtDeclarative)
+target_link_libraries(core_logic_test Qt5::Test Qt5::Core Qt5::Quick)
 add_test(NAME core_logic_test COMMAND core_logic_test)
 set_property(TARGET core_logic_test PROPERTY LINKER_LANGUAGE CXX)
 set_property(TARGET core_logic_test PROPERTY CXX_STANDARD 11)

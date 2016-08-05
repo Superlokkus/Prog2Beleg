@@ -2,9 +2,9 @@
  *
  * */
 
-#include <QtGui/QApplication>
-#include <QtGui>
-#include <QDockWidget>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QMainWindow>
 #include <string>
 
 #include "library_qt_adapters.h"
